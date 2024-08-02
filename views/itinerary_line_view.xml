@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <record id="view_pms_itinerary_lines_tree" model="ir.ui.view">
+            <field name="name">pms.itinerary.lines.tree</field>
+            <field name="model">pms.itinerary.lines</field>
+            <field name="arch" type="xml">
+
+                <tree string="Itinerary Lines">
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="rating"/>
+<!--                    <field name="types"/>-->
+                </tree>
+
+            </field>
+        </record>
+
+        <record id="view_pms_itinerary_lines_kanban" model="ir.ui.view">
+            <field name="name">pms.itinerary.lines.kanban</field>
+            <field name="model">pms.itinerary.lines</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="rating"/>
+                </kanban>
+            </field>
+        </record>
+    </data>
+</odoo>

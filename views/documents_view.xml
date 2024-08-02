@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="pms_documents_form_view" model="ir.ui.view">
+            <field name="name">pms.documents.form</field>
+            <field name="model">pms.documents</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="document_no"/>
+                                <field name="document_type"/>
+                            </group>
+                            <group>
+                                <field name="expiry_date"/>
+                                <field name="issue_place"/>
+                                <field name="issue_date"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pms_documents_tree_view" model="ir.ui.view">
+            <field name="name">pms.documents.tree</field>
+            <field name="model">pms.documents</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="document_no"/>
+                    <field name="document_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_pms_documents" model="ir.actions.act_window">
+            <field name="name">Documents</field>
+            <field name="res_model">pms.documents</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_pms_documents" name="Documents"
+                  sequence="3"
+                  parent="main_menu_pms" action="action_pms_documents"/>
+
+    </data>
+</odoo>

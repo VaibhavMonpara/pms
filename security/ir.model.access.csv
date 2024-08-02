@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pms,access.pms,model_pms,,1,1,1,1
+access_pms_guest,access.pms.guest,model_pms_guest,,1,1,1,1
+access_pms_documents,access.pms.documents,model_pms_documents,,1,1,1,1
+access_pms_housekeeping,access.pms.housekeeping,model_pms_housekeeping,,1,1,1,1
+access_pms_google_places_config,access.pms.google.places.config,model_pms_google_places_config,,1,1,1,1
+access_pms_itinerary,access.pms.itinerary,model_pms_itinerary,,1,1,1,1
+access_pms_itinerary_lines,access.pms.itinerary.lines,model_pms_itinerary_lines,,1,1,1,1
+access_pms_events,access.pms.events,model_pms_events,,1,1,1,1
+access_pms_events_lines,access.pms.events.lines,model_pms_events_lines,,1,1,1,1

@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <record id="view_pms_google_places_config_form" model="ir.ui.view">
+            <field name="name">pms.google.places.config.form</field>
+            <field name="model">pms.google.places.config</field>
+            <field name="arch" type="xml">
+                <form string="Google Places Configuration">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="site_name"/>
+                                <field name="client_id"/>
+                            </group>
+                            <group>
+                                <field name="api_key"/>
+                                <field name="private_token"/>
+                                <field name="public_token"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pms_google_places_config_tree" model="ir.ui.view">
+            <field name="name">pms.google.places.config.tree</field>
+            <field name="model">pms.google.places.config</field>
+            <field name="arch" type="xml">
+                <tree string="Google Places Configuration">
+
+                    <field name="site_name"/>
+                    <field name="api_key"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_pms_google_places_config" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="res_model">pms.google.places.config</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_pms_config_setting" name="Settings" parent="main_menu_pms"/>
+
+        <menuitem id="menu_pms_config_setting_submenu" name="Config"
+                  parent="menu_pms_config_setting" action="action_pms_google_places_config"/>
+
+    </data>
+</odoo>

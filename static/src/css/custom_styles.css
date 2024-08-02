@@ -1,0 +1,4 @@
+/* Increase font size for Kanban cards */
+.o_kanban_record {
+    font-size: 16px; /* Adjust `the font size as needed */
+}

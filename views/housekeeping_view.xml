@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="pms_housekeeping_form_view" model="ir.ui.view">
+            <field name="name">pms.housekeeping.form</field>
+            <field name="model">pms.housekeeping</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="room_no"/>
+                            <field name="room_status"/>
+                            <field name="room_type"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pms_housekeeping_tree_view" model="ir.ui.view">
+            <field name="name">pms.housekeeping.tree</field>
+            <field name="model">pms.housekeeping</field>
+            <field name="arch" type="xml">
+                <tree>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="pms_housekeeping_kanban_view" model="ir.ui.view">
+            <field name="name">pms.housekeeping.kanban</field>
+            <field name="model">pms.housekeeping</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <field name="color"/>
+                        <field name="room_no"/>
+                        <field name="room_status"/>
+                        <field name="checkin_date"/>
+                        <field name="checkout_date"/>
+
+                        <t t-name="kanban-box">
+                            <div t-attf-class="{{'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) }} oe_kanban_card oe_kanban_global_click oe_semantic_html_override">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <strong>
+                                            <field name="room_no" style="color: black;"/>
+                                        </strong>
+                                    </div>
+                                </div>
+                                <hr class="mt8 mb8"/>
+
+                                <div class="oe_kanban _details">
+                                    <t t-if="record.room_no.value">
+                                        <ul>
+                                            <strong>Room No#</strong>
+                                            <field name="room_no"/>
+                                            <br/>
+                                            <strong>Status:</strong>
+                                            <field name="room_status"/>
+                                        </ul>
+                                    </t>
+                                </div>
+                                <div>
+                                    <ul>
+                                        <strong>Check In:</strong>
+                                        <field name="checkin_date"/>
+                                        <br/>
+                                        <strong>Check Out:</strong>
+                                        <field name="checkout_date"/>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="action_pms_housekeeping" model="ir.actions.act_window">
+            <field name="name">Housekeeping</field>
+            <field name="res_model">pms.housekeeping</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <menuitem id="menu_pms_housekeeping" name="Housekeeping"
+                  sequence="4"
+                  parent="main_menu_pms" action="action_pms_housekeeping"/>
+    </data>
+</odoo>

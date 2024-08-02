@@ -1,0 +1,87 @@
+<odoo>
+    <data>
+        <record id="view_pms_events_form" model="ir.ui.view">
+            <field name="name">pms.events.form</field>
+            <field name="model">pms.events</field>
+            <field name="arch" type="xml">
+                <form string="Events">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="query"/>
+                                <field name="location"/>
+                                <field name="radius"/>
+                                                                <field name="data"/>
+
+                            </group>
+                        </group>
+                        <button name="fetch_events_data" string="Get Events" type="object"
+                                class="btn-success"/>
+
+                        <!-- Other tabs or views here -->
+<!--                        <field name="itinerary_line_ids">-->
+<!--                            <kanban>-->
+<!--                                <field name="name"/>-->
+<!--&lt;!&ndash;                                <field name="image" save="1"/>&ndash;&gt;-->
+<!--                                &lt;!&ndash; Add other fields as needed &ndash;&gt;-->
+<!--                                <templates>-->
+<!--                                    <t t-name="kanban-box">-->
+<!--                                        <div class="oe_kanban_global_click">-->
+<!--                                            <div class="oe_kanban_details">-->
+<!--                                                <strong>-->
+<!--                                                    <field name="name"/>-->
+<!--                                                </strong>-->
+<!--&lt;!&ndash;                                                <t t-if="record.image">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                    <img t-att-src="record.image"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                </t>&ndash;&gt;-->
+<!--                                            </div>-->
+<!--                                            <br/>-->
+<!--                                            <br/>-->
+<!--                                            <div class="oe_kanban _details">-->
+
+<!--                                                <ul>-->
+<!--                                                    <strong>Address:</strong>-->
+<!--                                                    <field name="address"/>-->
+<!--                                                    <br/>-->
+<!--                                                    <strong>Rating:</strong>-->
+<!--                                                    <field name="rating"/>-->
+<!--                                                </ul>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </t>-->
+<!--                                </templates>-->
+<!--                            </kanban>-->
+<!--                        </field>-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pms_events_tree" model="ir.ui.view">
+            <field name="name">pms.events.tree</field>
+            <field name="model">pms.events</field>
+            <field name="arch" type="xml">
+                <tree string="Events">
+
+                    <field name="query"/>
+                    <field name="location"/>
+                    <field name="radius"/>
+                    <field name="data"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_pms_events" model="ir.actions.act_window">
+            <field name="name">Events</field>
+            <field name="res_model">pms.events</field>
+            <field name="view_mode">form,tree</field>
+        </record>
+
+
+        <menuitem id="menu_pms_events" name="Events"
+                  sequence="6"
+                  parent="main_menu_pms" action="action_pms_events"/>
+
+    </data>
+</odoo>

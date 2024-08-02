@@ -1,0 +1,87 @@
+<odoo>
+    <data>
+        <record id="view_pms_itinerary_form" model="ir.ui.view">
+            <field name="name">pms.itinerary.form</field>
+            <field name="model">pms.itinerary</field>
+            <field name="arch" type="xml">
+                <form string="Itinerary">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="query"/>
+                                <field name="location"/>
+                                <field name="radius"/>
+                                <!--                                <field name="data"/>-->
+
+                            </group>
+                        </group>
+                        <button name="fetch_places_data" string="Get Details" type="object"
+                                class="btn-success"/>
+
+                        <!-- Other tabs or views here -->
+                        <field name="itinerary_line_ids">
+                            <kanban>
+                                <field name="name"/>
+<!--                                <field name="image" save="1"/>-->
+                                <!-- Add other fields as needed -->
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <div class="oe_kanban_global_click">
+                                            <div class="oe_kanban_details">
+                                                <strong>
+                                                    <field name="name"/>
+                                                </strong>
+<!--                                                <t t-if="record.image">-->
+<!--                                                    <img t-att-src="record.image"/>-->
+<!--                                                </t>-->
+                                            </div>
+                                            <br/>
+                                            <br/>
+                                            <div class="oe_kanban _details">
+
+                                                <ul>
+                                                    <strong>Address:</strong>
+                                                    <field name="address"/>
+                                                    <br/>
+                                                    <strong>Rating:</strong>
+                                                    <field name="rating"/>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </templates>
+                            </kanban>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pms_itinerary_tree" model="ir.ui.view">
+            <field name="name">pms.itinerary.tree</field>
+            <field name="model">pms.itinerary</field>
+            <field name="arch" type="xml">
+                <tree string="Itinerary">
+
+                    <field name="query"/>
+                    <field name="location"/>
+                    <field name="radius"/>
+                    <field name="data"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_pms_itinerary" model="ir.actions.act_window">
+            <field name="name">Itinerary</field>
+            <field name="res_model">pms.itinerary</field>
+            <field name="view_mode">form,tree</field>
+        </record>
+
+
+        <menuitem id="menu_pms_itinerary" name="Itinerary"
+                  sequence="5"
+                  parent="main_menu_pms" action="action_pms_itinerary"/>
+
+    </data>
+</odoo>
